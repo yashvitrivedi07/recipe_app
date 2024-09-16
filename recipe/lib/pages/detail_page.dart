@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:recipe/pages/home_page.dart';
 import 'package:recipe/utils/recipe.dart';
@@ -216,25 +218,9 @@ class _DetailPageState extends State<DetailPage> {
                                       padding:
                                           EdgeInsets.only(left: 10, top: 15),
                                       child: Column(
-                                        children: [
-                                              Text(
-                                          "INGREDIENTS : \n",
-                                          style: TextStyle(
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w700,
-                                              color: Colors.white),
-                                          
-                                        ),
-
-                                       Text(
-                                          "${recipies['ingredients']}",
-                                          style: TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w700,
-                                              color: Colors.white),
-                                          
-                                        ),
-                                        ],
+                                        children: recipies['ingredients'].map((ingredients) {
+                      return Text(ingredients);
+                    }).toList(),
                                         
                                       )),
                                 ],
